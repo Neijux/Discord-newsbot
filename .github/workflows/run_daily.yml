@@ -30,7 +30,7 @@ jobs:
         GEMINI_API_KEY: ${{ secrets.API }}
         DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD }}
         # キーワードを直接指定（Variables読み込み問題を回避）
-        SEARCH_KEYWORDS: "AI, 人工知能, Generative AI, 生成AI, LLM, 大規模言語モデル, Cursor, Anthropic, OpenAI, ChatGPT, Google Gemini, Antigravity, Adobe, Nanobanana, Prompt Engineering, プロンプトエンジニアリング, Midjourney, Higgs Field, Kling, Sora2, Workflow, ワークフロー, AI Design, AIデザイン, Creative AI, クリエイティブAI, Automation, 自動化, NotebookLM, vibe coding, Obsidian, VS Code Extension, Plugin, プラグイン"
-        FILTER_KEYWORDS: "Crypto, Blockchain, NFT"
+        SEARCH_KEYWORDS: "AI,人工知能,Generative AI,生成AI,LLM,大規模言語モデル,Cursor,Anthropic,OpenAI,ChatGPT,Google Gemini,Antigravity,Adobe,Nanobanana,Prompt Engineering,プロンプトエンジニアリング,Midjourney,Higgs Field,Kling,Sora2,Workflow,ワークフロー,AI Design,AIデザイン,Creative AI,クリエイティブAI,Automation,自動化,NotebookLM,vibe coding,Obsidian,VS Code Extension,Plugin,プラグイン"
+        FILTER_KEYWORDS: "Crypto,Blockchain,NFT"
       run: |
         python main.py
