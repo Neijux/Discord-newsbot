@@ -80,6 +80,19 @@ class DiscordNotifier:
         if embeds:
             self._post_payload({"embeds": embeds})
 
+    def send_log_message(self, message):
+        """デバッグログなどのテキストメッセージをDiscordに送信する"""
+        if not self.webhook_url:
+            return
+
+        # Discordの文字数制限（2000文字）を考慮して分割送信
+        chunk_size = 1900
+        for i in range(0, len(message), chunk_size):
+            chunk = message[i:i+chunk_size]
+            payload = {"content": f"```\n{chunk}\n```"}
+            self._post_payload(payload)
+            time.sleep(1)
+
     def _post_payload(self, payload):
         try:
             response = requests.post(self.webhook_url, json=payload)
