@@ -49,11 +49,15 @@ def job():
         print("No new articles found.")
         return
 
+    # 記事数上限（Gemini 2.5 Flashの1日20回制限に対応）
+    MAX_ARTICLES = 20
+    raw_news = raw_news[:MAX_ARTICLES]  # 最初の20件のみ処理
+    
     print(f"Found {len(raw_news)} raw articles. Summarizing...")
 
     # 2. Summarize (Batch processing)
-    # 記事が多い場合は分割して処理する（例: 5件ずつ）
-    BATCH_SIZE = 5
+    # 20件を1回のAPIリクエストで処理（APIコール節約）
+    BATCH_SIZE = 20
     summarized_news = []
     
     summarizer = NewsSummarizer()

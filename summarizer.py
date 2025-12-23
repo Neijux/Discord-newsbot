@@ -15,7 +15,7 @@ else:
     genai.configure(api_key=api_key)
 
 class NewsSummarizer:
-    def __init__(self, model_name='gemini-1.5-flash'): # 最も安定した無料枠モデル
+    def __init__(self, model_name='gemini-2.5-flash'): # 最新の賢いモデル（1日20回制限）
         self.model_name = model_name
         self.model = genai.GenerativeModel(model_name)
 
