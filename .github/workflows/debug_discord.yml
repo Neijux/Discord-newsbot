@@ -1,0 +1,34 @@
+name: Debug Discord Webhook
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug and Send
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD }}
+        run: |
+          echo "Debugging Webhook URL..."
+          
+          # URLの長さをチェック
+          URL_LEN=${#DISCORD_WEBHOOK_URL}
+          echo "URL Length: $URL_LEN"
+          
+          if [ "$URL_LEN" -lt 10 ]; then
+            echo "Error: URL is too short or empty!"
+            exit 1
+          fi
+          
+          # URLの先頭と末尾を表示（セキュリティのため一部のみ）
+          echo "URL Starts with: ${DISCORD_WEBHOOK_URL:0:35}..."
+          echo "URL Ends with: ...${DISCORD_WEBHOOK_URL: -5}"
+          
+          # curlで直接送信してみる（Pythonを使わない最も原始的な方法）
+          echo "Sending test message via curl..."
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{"content": "🚨 GitHub Actionsからのテスト通知です。これが届けばSecretsは正しいです！"}' \
+               $DISCORD_WEBHOOK_URL
