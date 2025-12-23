@@ -52,8 +52,8 @@ def job():
     print(f"Found {len(raw_news)} raw articles. Summarizing...")
 
     # 2. Summarize (Batch processing)
-    # 記事が多い場合は分割して処理する（例: 20件ずつ）
-    BATCH_SIZE = 20
+    # 記事が多い場合は分割して処理する（例: 5件ずつ）
+    BATCH_SIZE = 5
     summarized_news = []
     
     summarizer = NewsSummarizer()

@@ -15,7 +15,7 @@ else:
     genai.configure(api_key=api_key)
 
 class NewsSummarizer:
-    def __init__(self, model_name='gemini-2.0-flash'): # 無料枠が大きいモデルに変更
+    def __init__(self, model_name='gemini-1.5-flash'): # 最も安定した無料枠モデル
         self.model_name = model_name
         self.model = genai.GenerativeModel(model_name)
 
