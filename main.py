@@ -50,8 +50,8 @@ def job():
         return
 
     # 記事数上限（Gemini 2.5 Flashの1日20回制限に対応）
-    MAX_ARTICLES = 20
-    raw_news = raw_news[:MAX_ARTICLES]  # 最初の20件のみ処理
+    MAX_ARTICLES = 10
+    raw_news = raw_news[:MAX_ARTICLES]  # 最初の10件のみ処理
     
     print(f"Found {len(raw_news)} raw articles. Summarizing...")
 
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     sys.stderr = logger # Stderrもキャプチャ
 
     notifier = DiscordNotifier()
-    should_send_log = True # デバッグ中は常に送信する
+    should_send_log = False # デバッグ完了後は無効化
     
     try:
         job()
