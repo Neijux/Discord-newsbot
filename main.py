@@ -50,8 +50,8 @@ def job():
         return
 
     # 記事数上限（Gemini 2.5 Flashの1日20回制限に対応）
-    MAX_ARTICLES = 10
-    raw_news = raw_news[:MAX_ARTICLES]  # 最初の10件のみ処理
+    MAX_ARTICLES = 15
+    raw_news = raw_news[:MAX_ARTICLES]  # 最初の15件のみ処理
     
     print(f"Found {len(raw_news)} raw articles. Summarizing...")
 
