@@ -112,6 +112,12 @@ class NewsCollector:
 
         self.save_seen_entries()
         print(f"Collected {len(collected_entries)} new articles.")
+        
+        # 記事の偏りをなくすためにシャッフルする
+        # (これを行わないと、フィードリストの上位にあるZennなどが常に優先され、Redditなどが切り捨てられるため)
+        import random
+        random.shuffle(collected_entries)
+        
         return collected_entries
 
 if __name__ == "__main__":
