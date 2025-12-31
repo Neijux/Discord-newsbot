@@ -60,7 +60,7 @@
 
 ```yaml
         # 33行目付近
-        SEARCH_KEYWORDS: "AI,生成AI,LLM,Python,個人開発,Design,Midjourney,Pokemon,推しの名前..."
+        SEARCH_KEYWORDS: "AI,ChatGPT,業務効率化,Python,リモートワーク,推しの名前..."
 ```
 *   **注意**: キーワードはカンマ区切りで入力してください。
 
