@@ -1,7 +1,7 @@
 name: News Agent
 
 on:
-  schedule:
+#   schedule:
     # 毎日 日本時間 朝7:07 (UTC 22:07) に実行（0分は混雑するため回避）
     # - cron: '7 22 * * *'
   # 手動実行も可能にするボタン
